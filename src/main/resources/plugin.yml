@@ -1,0 +1,18 @@
+name: TGBUG_EDGS
+version: '1.0.15'
+main: TGBUG.tgbug_edgs.TGBUG_EDGS
+api-version: '1.20'
+load: STARTUP
+commands:
+    everydaygoldensentence:
+        description: 插件主命令
+        aliases: edgs
+        permission: op
+        usage: "/<command> [reload|view]"
+        children:
+            reload:
+                description: 重新加载配置文件
+                usage: "/<command> reload"
+            view:
+                description: 直接调用一次API
+                usage: "/<command> view"

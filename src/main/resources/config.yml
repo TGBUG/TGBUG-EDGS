@@ -1,0 +1,13 @@
+#是否允许bStats收集数据（重启生效）
+bStats: true
+#设置你自己的API地址
+api-url: https://uapis.cn/api/say
+#广播延迟（单位：秒）
+delay: 600
+#广播间隔（单位：秒）
+period: 600
+#广播文本（使用%message%作为占位符，支持彩色文本，支持多行）
+message:
+  - ""
+  - "%message%"
+  - ""
