@@ -1,7 +1,7 @@
 name: TGBUG_EDGS
 version: '1.0.15'
 main: TGBUG.tgbug_edgs.TGBUG_EDGS
-api-version: '1.20'
+api-version: '1.16'
 load: STARTUP
 commands:
     everydaygoldensentence:
