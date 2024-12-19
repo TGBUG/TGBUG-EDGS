@@ -8,7 +8,7 @@ import java.net.URL;
 import static org.bukkit.Bukkit.getLogger;
 
 public class getAPI {
-    public String GetAPI(String URL) {
+    static void GetAPI(String URL, Callback cb) {
         StringBuilder result = new StringBuilder();
 
         try {
@@ -34,6 +34,10 @@ public class getAPI {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return result.toString();
+        cb.onResult(result.toString());
+    }
+
+    interface Callback {
+        void onResult(String result);
     }
 }

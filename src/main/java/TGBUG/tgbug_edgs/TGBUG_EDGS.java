@@ -102,14 +102,18 @@ public final class TGBUG_EDGS extends JavaPlugin implements CommandExecutor {
     }
 
     public void broadcast() {
-        String APImessage = new getAPI().GetAPI(APIURL);
+        getAPI.GetAPI(APIURL, APImessage -> {
+            if (APImessage != null) {
+                for (String message : message) {
+                    message = message.replace("%message%", APImessage);
+                    message = ChatColor.translateAlternateColorCodes('&', message);
+                    String finalMessage = message;
+                    Bukkit.getScheduler().runTask(TGBUG_EDGS.this, () -> Bukkit.broadcastMessage(finalMessage));
+                }
+            }
+        });
         //替换占位符以及颜色符号
-        for (String message : message) {
-            message = message.replace("%message%", APImessage);
-            message = ChatColor.translateAlternateColorCodes('&', message);
-            String finalMessage = message;
-            Bukkit.getScheduler().runTask(TGBUG_EDGS.this, () -> Bukkit.broadcastMessage(finalMessage));
-        }
+
     }
 
     public void sendmessage(String message, CommandSender sendto, ChatColor color) {
